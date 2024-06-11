@@ -1,0 +1,24 @@
+<div class="register-container">
+    <h2>Register</h2>
+    <form>
+      <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" [(ngModel)]="username" name="username" required>
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" [(ngModel)]="password" name="password" required>
+      </div>
+      <div>
+        <label for="profilePicture">Profile Picture:</label>
+        <input type="file" id="profile_picture" (change)="onFileSelected($event)" name="profile_picture" required>
+      </div>
+      <div class="error-message">
+        @if (errorMessage){
+            {{ errorMessage }}
+        }
+      </div>
+      <button type="submit" (click)="register()">Register</button>
+    </form>
+  </div>
+  

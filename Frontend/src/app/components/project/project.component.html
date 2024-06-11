@@ -1,0 +1,19 @@
+<p>project works!</p>
+
+<!-- <ul>
+    @for (p of posts; track p.id){
+    <li>{{p.title}}</li>
+}
+</ul> -->
+
+<ul>
+    @for (p of projects; track p.id){
+    <li>{{p.name}}</li>
+    <li>{{p.memory_usage}}</li>
+    <li>{{p.cost}}</li>
+    <li>{{p.created_at}}</li>
+    <li>{{p.due_date}}</li>
+    <li>{{p.members}}</li>
+    <li>{{p.updated_at}}</li>
+}
+</ul>
