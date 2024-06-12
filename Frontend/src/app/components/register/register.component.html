@@ -1,24 +1,28 @@
+<form>
 <div class="register-container">
-    <h2>Register</h2>
-    <form>
-      <div>
-        <label for="username">Username:</label>
-        <input type="text" id="username" [(ngModel)]="username" name="username" required>
-      </div>
-      <div>
-        <label for="password">Password:</label>
-        <input type="password" id="password" [(ngModel)]="password" name="password" required>
-      </div>
-      <div>
-        <label for="profilePicture">Profile Picture:</label>
-        <input type="file" id="profile_picture" (change)="onFileSelected($event)" name="profile_picture" required>
-      </div>
-      <div class="error-message">
-        @if (errorMessage){
-            {{ errorMessage }}
-        }
-      </div>
-      <button type="submit" (click)="register()">Register</button>
-    </form>
+  <h2 align="center">Register Form</h2>
+  <hr style="margin-bottom: 40px;">
+  <label for="username"><b>Username</b></label>
+  <input type="text" placeholder="Enter Username" [(ngModel)]="username" name="username" required>
+  
+  <label for="password"><b>Password</b></label>
+  <input type="password" placeholder="Enter Password" [(ngModel)]="password" name="password" required>
+  <div>
+    <label for="profilePicture">Profile Picture:</label>
+    <input type="file" id="profile_picture" (change)="onFileSelected($event)" name="profile_picture" required>
   </div>
+  <div class="error-message" style="margin: 10px; color:red;">
+    @if (errorMessage){
+        {{ errorMessage }}
+    }
+  </div>
+  <button type="submit" (click)="register()">Register</button>
+  <div class="container" style="background-color:#f1f1f1">
+    <button type="reset" class="resetbtn">Reset</button>
+    <span class="psw">Already Have an Account <a href="#">Login</a></span>
+  </div>
+</div>
+</form>
+ 
+
   

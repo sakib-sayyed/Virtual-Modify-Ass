@@ -1,0 +1,48 @@
+header {
+    background-color: #265C4C;
+    color: #FFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+h1{
+    font-size: xx-large;
+    margin: auto 40px;
+}
+.user-info {
+    display: flex;
+    align-items: center;
+}
+.user-info img {
+    border-radius: 50%;
+    margin-left: 10px;
+    height: 40px;
+    width: 40px;
+}
+.notifi-icon{
+    margin-left: 20px;
+    color: black;
+    border: 1px solid gray;
+    border-radius: 50%;
+    padding: 8px;
+    background-color: #FFFF;
+    margin-left: 20px;
+}
+button{
+    align-items: center;
+    margin-left: 20px;
+    padding: 10px 20px;
+    background-color: #3C856F;
+    font-size: 15px;
+    border: none;
+    border-radius: 20px;
+    color: #FFFF;
+    cursor: pointer;
+    display: flex;
+}
+.plus-icon{
+    font-size: 20px;
+    color: yellow;
+    margin-right: 5px;
+}

@@ -27,6 +27,7 @@ export class LoginComponent {
         localStorage.setItem('access_token', response.access);
         localStorage.setItem('refresh_token', response.refresh);
         localStorage.setItem('user', JSON.stringify(response.user));
+        localStorage.setItem('profile_pic',response.profile_picture)
         // localStorage.setItem('profile_pic',response.user.profile_picture);
         // localStorage.setItem('username',response.user.user.username);
 

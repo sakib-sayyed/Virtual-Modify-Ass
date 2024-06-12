@@ -1,0 +1,117 @@
+.media-container{
+    background-color: #265C4C;
+    height: 330px;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+.pictures,.videos,.sounds,.storage_used{
+    background-color: #3C856F;
+    height: 280px;
+    width: 300px;
+    display: inline-block;
+    justify-content: space-around;
+    margin: 0 50px 0 0;
+    box-sizing: border-box;
+}
+.sidebar {
+    box-sizing: border-box;
+    height: 280px;
+    width: 220px;
+    display: inline-block;
+    margin: 0 10px;
+    color: #3C856F;
+    }
+
+.sidebar ul li{
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+.image-icon,.sound-icon,.video-icon {
+    position: relative;
+    font-size: 20px;
+    color: #e3ff00;
+    margin: 15px 0 0 15px;
+    border-radius: 50%;
+    padding: 15px;
+    background-color: #265C4C;
+    margin-left: 20px;
+    cursor: pointer;
+}
+.card-heading {
+    font-size: large;
+    font-weight: 400;
+    margin: 0 0 0 20px;
+    color: #FFFF;
+}
+.card-number{
+    color: #FFFF;
+    margin: 0 0 0 20px;
+}
+.stats{
+    display: flex;
+    justify-content: space-between;
+    margin: 25px 25px 0 25px;
+    color: #FFFF;
+    border-top: 2px solid #265C4C;
+}
+.stats div {
+    text-align: center;
+    margin: 8px 0;
+}
+.stats .title{
+    font-size: 14px;
+}
+.used ,.available{
+    border-left: 2px solid #265C4C;
+    padding-left: 22px;
+}
+
+.storage_used{
+    position: relative;
+    
+    display: flex;
+    flex-direction: column;
+}
+.storage_used .title {
+    font-size: 15px;
+    margin-top: 20px;
+}
+.storage_used .title,.percentage{
+    z-index: 2;
+}
+.storage_used .percentage {
+    font-size: 30px;
+    font-weight: 500;
+    position: relative;
+    color: #e3ff00;
+}
+.progress-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: #3C856F;
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+    bottom: 0px;
+}
+.progress-bar .progress {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    transition: height 0.5s ease;
+    background: repeating-linear-gradient(
+        -45deg,
+        #265C4C,
+        #265C4C 3px,
+        #3C856F 3px,
+        #3C856F 6px
+    );
+}

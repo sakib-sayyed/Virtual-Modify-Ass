@@ -41,10 +41,12 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
 class MediaSerializer(serializers.ModelSerializer):
     uploaded_by = serializers.PrimaryKeyRelatedField(queryset=User.objects.all())
+    total_storage = serializers.FloatField(source='storage.total', read_only=True)
 
     class Meta:
         model = Media
-        fields = '__all__'
+        fields = ['id', 'type', 'size', 'uploaded_by', 'storage', 'created_at', 'updated_at', 'total_storage']
+
 
     def create(self, validated_data):
         media = Media.objects.create(**validated_data)

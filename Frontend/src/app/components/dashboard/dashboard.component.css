@@ -1,0 +1,236 @@
+
+
+
+    /*Team activity Code*/
+    .team-revenue-container{
+        box-sizing: border-box;
+        margin: 0 30px;
+        display: flex;
+        position: relative;
+    }
+    .team-activity{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        width: 40%;
+        margin-right: 25px;
+    }
+    .team-heading{
+        justify-content: space-between;
+        align-items: center;
+        display: flex;
+        position: relative;
+        border-bottom: 2px solid #040404;
+    }
+    .team-heading .title{
+        margin: auto 0 auto 30px;
+        font-size: x-large;
+    }
+    .team-heading button{
+        border: none;
+        background-color: #FFFF;
+        cursor: pointer;
+    }
+    .team-heading .plus-icon{
+        position: relative;
+        color: #040404;
+        border-radius: 50%;
+        padding: 5px;
+        cursor: pointer;
+        border: none;
+        background-color: #e3ff00;
+    }
+    .team-member{
+        margin: 10px 0;
+    }
+    .team-progress-bar img {
+        border-radius: 50%;
+        margin-left: 10px;
+        height: 40px;
+        width: 40px;
+        margin-left: 0;
+        position: absolute;
+    }
+    .team-progress-bar {
+        display: flex;
+        flex-grow: 1;
+        height: 40px;
+        border-radius: 50px 0 0 50px;
+        overflow: hidden;
+    }
+    .first{
+        background: repeating-linear-gradient(
+            -45deg,
+            #57B5A5,
+            #57B5A5 3px,
+            #fff 3px,
+            #fff 6px
+         );
+    }
+    .second{
+        background: repeating-linear-gradient(
+            -45deg,
+            #ffe75c,
+            #ffe75c 3px,
+            #fff 3px,
+            #fff 6px
+         );
+    }
+    .third{
+        background: repeating-linear-gradient(
+            -45deg,
+            #dfdfdf,
+            #dfdfdf 3px,
+            #fff 3px,
+            #fff 6px
+         );
+    }
+    .fourth{
+        background: repeating-linear-gradient(
+            -45deg,
+            #5C5C5C,
+            #5C5C5C 3px,
+            #fff 3px,
+            #fff 6px
+         );
+    }
+    .whimsy {
+        width: 70%;
+        background: repeating-linear-gradient(
+            -45deg,
+            #57B5A5,
+            #57B5A5 3px,
+            #4A7F6A 3px,
+            #4A7F6A 6px
+        );
+    }
+    
+    .doodle {
+        width: 50%;
+        background: repeating-linear-gradient(
+            -45deg,
+            #ffe75c,
+            #ffe75c 3px,
+            #e4cd4a 3px,
+            #e4cd4a 6px
+        );
+        
+    }
+    
+    .sparkle {
+        width: 40%;
+        background: repeating-linear-gradient(
+            -45deg,
+            #dfdfdf,
+            #dfdfdf 3px,
+            #c3c3c3 3px,
+            #c3c3c3 6px
+        );
+    }
+    
+    .wonder {
+        width: 51%;
+        background: repeating-linear-gradient(
+            -45deg,
+            #3A3A3A,
+            #3A3A3A 3px,
+            #040404 3px,
+            #040404 6px
+        );
+    }
+    
+
+    /* Revenue Code Starts*/
+    .revenue{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        width: 60%;
+    }
+    .revenue-heading{
+        display: flex;
+        position: relative;
+        justify-content: space-between;
+        border-bottom: 2px solid #040404;
+    }
+    .revenue-heading .title{
+        margin: auto 0 auto 30px;
+        font-size: x-large;
+    }
+    .revenue-heading button{
+        border: none;
+        background-color: #FFFF;
+        cursor: pointer;
+    }
+    .revenue-heading button i{
+        background-color: lightgray;
+        padding: 10px;
+        border-radius: 50%;
+    }
+
+    /*Chart*/
+    .chart-container{
+        display: flex;
+        flex-direction: column;
+        height: 180px;
+        border-bottom: 2px solid #040404;
+        box-sizing: border-box;
+        padding-bottom: 0px;
+    }
+    .chart-container .chart-title{
+        margin: 10px;
+        margin-bottom: 0;
+        color: #c3c3c3;
+    }
+    .chart-container .chart-value{
+        margin: 10px;
+        font-size: xx-large;
+    }
+    .chart-bar{
+        display: flex;
+        justify-content: space-between;
+        margin: 10px;
+        border-bottom: 10px solid #040404;
+        position: relative;
+        bottom: 0px;
+    }
+    .chart-bar .bar{
+        width: 5px;
+        height: 100%;
+        margin-right: 220px;
+        background-color: #040404;
+    }
+    .bar .bar-value{
+        margin-left: 10px;
+    }
+    .chart-months .month{
+        margin-right: 200px;
+        color: #c3c3c3;
+    }
+
+    /*Project Heading*/
+
+    .projects-heading{
+        display: flex;
+        justify-content: space-between;
+        margin: 0 10px;
+        border-bottom: 1px solid #c3c3c3;
+    }
+    .projects-heading h4,.project1 h4,.project2 h4{
+        font-size:small;
+        font-weight: 500;
+    }
+    .projects{
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+    }
+    .project1,.project2{
+        display: flex;
+        justify-content: space-between;
+    }
+    .p-icon{
+        background-color: #dedede;
+        padding: 5px;
+        border-radius: 50px;
+    }

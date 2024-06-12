@@ -1,1 +1,102 @@
-<p>dashboard works!</p>
+<app-navbar></app-navbar>
+<app-media></app-media>
+<div class="team-revenue-container">
+    <div class="team-activity" style="box-sizing: border-box;">
+
+        <div class="team-heading">
+            <h2 class="title">Team Activity</h2>
+            <div class="links">
+                <div class="users"></div>
+                <button><span class="material-symbols-outlined plus-icon">add_circle</span></button>
+                <button><span class="material-symbols-outlined">arrow_outward</span></button>
+            </div>
+        </div>
+
+        <div class="team-member">
+            <div class="project-name"><i class="bi bi-asterisk" style="color: #3C856F;"></i> WhimsyWorks</div>
+            <div class="team-progress-bar first" style="width: 70%;">
+                <img src="https://th.bing.com/th/id/OIP.IGNf7GuQaCqz_RPq5wCkPgAAAA?w=116&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="User Avatar">
+                <div class="whimsy"></div>
+            </div>
+        </div>
+        <div class="team-member">
+            <div class="project-name"><i class="bi bi-stars" style="color: #d9ea58;"></i> DoodleVerse</div>
+            <div class="team-progress-bar second" style="width: 90%;">
+                <img src="https://th.bing.com/th/id/OIP.IGNf7GuQaCqz_RPq5wCkPgAAAA?w=116&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="User Avatar">
+                <div class="doodle"></div>
+            </div>
+        </div>
+        <div class="team-member">
+            <div class="project-name"><i class="bi bi-brightness-low-fill" style="color: #c3c3c3;"></i> SparkleCraft</div>
+            <div class="team-progress-bar third" style="width: 60%;">
+                <img src="https://th.bing.com/th/id/OIP.IGNf7GuQaCqz_RPq5wCkPgAAAA?w=116&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="User Avatar">
+                <div class="sparkle"></div>
+            </div>
+        </div>
+        <div class="team-member">
+            <div class="project-name"><i class="bi bi-boxes"></i> WonderWave</div>
+            <div class="team-progress-bar fourth" style="width: 95%;">
+                <img src="https://th.bing.com/th/id/OIP.IGNf7GuQaCqz_RPq5wCkPgAAAA?w=116&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="User Avatar">
+                <div class="wonder"></div>
+            </div>
+        </div>
+    </div>
+    <div class="revenue">
+        <div class="revenue-heading">
+            <h2 class="title">Revenue</h2>
+            <button><i class="bi bi-database-fill-add"></i></button>
+        </div>
+        
+        <div class="chart-container">
+            <div class="chart-title">Memory usage</div>
+            <div class="chart-value">57,2trb</div>
+            <div class="chart">
+                <div class="chart-bar">
+                    <div class="bar"><span class="bar-value">33trb</span></div>
+                    
+                    <div class="bar"><span class="bar-value">51trb</span></div>
+                    
+                    <div class="bar"><span class="bar-value">36trb</span></div>
+                    
+                    <div class="bar"><span class="bar-value">27trb</span></div>
+                </div>
+
+                <div class="chart-months" style="margin: 10px;">
+                    <span class="month">Jun</span>
+                    <span class="month">Jul</span>
+                    <span class="month">Apr</span>
+                    <span class="month">May</span>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="projects-heading">
+            <h4>Project Name</h4>
+            <h4>Size</h4>
+            <h4>Time Due</h4>
+            <h4 style="margin-right: 20px;">Cost</h4>
+        </div>
+
+        <div class="projects">
+
+            @for (p of projects;track p.id){
+            <div class="project1">
+                <h4><i class="bi bi-asterisk p-icon" style="color: #3C856F;"></i> {{p.name}}</h4>
+                <h4>{{p.memory_usage}}gb</h4>
+                <h4>{{p.due_date}}</h4>
+                <h4>{{p.cost}}</h4>
+            </div>
+        }
+            
+            <!-- <div class="project2">
+                <h4><i class="bi bi-stars p-icon" style="color: #d9ea58;"></i> DoodleVerse</h4>
+                <h4>123,9gb</h4>
+                <h4>01/09/2023</h4>
+                <h4>$13,000.00</h4>
+            </div> -->
+
+        </div>
+
+    </div>
+</div>

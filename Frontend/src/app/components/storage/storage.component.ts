@@ -1,30 +1,26 @@
-import { Component, Input } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from '../navbar/navbar.component';
-import { MediaComponent } from '../media/media.component';
-import { ProjectComponent } from '../project/project.component';
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'app-storage',
   standalone: true,
-  imports: [FormsModule,CommonModule,NavbarComponent,MediaComponent,ProjectComponent,HttpClientModule],
-  templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.css'
+  imports: [CommonModule,HttpClientModule],
+  templateUrl: './storage.component.html',
+  styleUrl: './storage.component.css'
 })
-export class DashboardComponent {
+export class StorageComponent implements OnInit{
 
-  projects: any[] = [];
+  storage: any[] = [];
   errorMessage: string = '';
 
-  private apiUrl = 'http://127.0.0.1:8000/projects/';
+  private apiUrl = 'http://127.0.0.1:8000/storage/';
 
   constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
-    this.fetchProjects();
+    this.fetchStorage();
   }
 
   private getHeaders(): HttpHeaders {
@@ -46,18 +42,18 @@ export class DashboardComponent {
     return cookieValue ? cookieValue.pop() || null : null;
   }
 
-  fetchProjects(): void {
+  fetchStorage(): void {
     const headers = this.getHeaders();
     this.http.get<any>(this.apiUrl, { headers }).subscribe({
       next: (data) => {
-        this.projects = data;
-        console.log(this.projects)
+        this.storage = data;
+        console.log(this.storage)
       },
       error: (error) => {
         if (error.status === 401) {
           this.router.navigate(['/login']);
         } else {
-          this.errorMessage = 'Failed to load projects. ' + error.message;
+          this.errorMessage = 'Failed to load Storage. ' + error.message;
         }
       }
     });

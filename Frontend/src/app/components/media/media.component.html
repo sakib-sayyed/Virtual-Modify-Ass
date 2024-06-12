@@ -1,12 +1,87 @@
-<p>media works!</p>
+<div class="media-container">
+    <div class="sidebar">
+        <ul>
+            <li style="color: yellow;">Dashoboard</li>
+            <li>Storage</li>
+            <li>Collection</li>
+            <li>Analytics</li>
+            <li>Trash</li>
+            <li>Settings</li>
+        </ul>
+    </div>
+    <div class="pictures">
+        <span class="material-symbols-outlined image-icon">imagesmode</span>
+        <h2 class="card-heading">Pictures</h2> <!--{{pictureCount}}-->
+        <h3 class="card-number">6455</h3>
+        <div class="stats">
+            <div class="total">
+                <div class="title">Total</div>
+                <div>100gb</div>
+            </div>
+            <div class="used">
+                <div class="title">Used</div>
+                <div>43gb</div> <!--{{pictureSize}}-->
+            </div>
+            <div class="available">
+                <div class="title">Available</div>
+                <div>57gb</div>
+            </div>
+        </div>
+    </div>
+    <div class="videos">
+        <span class="material-symbols-outlined video-icon">videocam</span>
+        <h2 class="card-heading">Videos</h2>
+        <h3 class="card-number">3221</h3> <!--{{ videoCount }}-->
+        <div class="stats">
+            <div class="total">
+                <div class="title">Total</div>
+                <div>100gb</div>
+            </div>
+            <div class="used">
+                <div class="title">Used</div>
+                <div>45gb</div> <!--{{videoSize}}-->
+            </div>
+            <div class="available">
+                <div class="title">Available</div>
+                <div>55gb</div>
+            </div>
+        </div>
+    </div>
+    <div class="sounds">
+        <span class="material-symbols-outlined sound-icon">library_music</span>
+        <h2 class="card-heading">Sounds</h2>
+        <h3 class="card-number">1443</h3> <!--{{soundCount}}-->
+        <div class="stats">
+            <div class="total">
+                <div class="title">Total</div>
+                <div>100gb</div>
+            </div>
+            <div class="used">
+                <div class="title">Used</div>
+                <div>30gb</div> <!--{{soundSize}}-->
+            </div>
+            <div class="available">
+                <div class="title">Available</div>
+                <div>70gb</div>
+            </div>
+        </div>
+    </div>
+    <div class="storage_used" style="width:130px">
+        <div class="progress-bar">
+            <div class="title">Used Space</div>
+            <div class="percentage">64.2%</div>
+            <div class="progress" id="" style="height: 64.2%;"></div>
+        </div>
+    </div>
+</div>
 
-<ul>
+<!-- <ul>
     @for (m of media;track m.id){
     <li>{{m.created_at}}</li>
     <li>{{m.size}}</li>
-    <li>{{m.storage}}</li>
+    <li>{{m.total_storage}}</li>
     <li>{{m.type}}</li>
     <li>{{m.updated_at}}</li>
     <li>{{m.uploaded_by}}</li>
     }
-</ul>
+</ul> -->

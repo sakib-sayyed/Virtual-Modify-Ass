@@ -1,12 +1,18 @@
-    <h1>Login form</h1>
-    <form >
-        <div>
-            <label for="username"></label>
-            <input type="text" [(ngModel)]="loginObj.username" name="username" required>
-        </div>
-        <div>
-            <label for="password"></label>
-            <input type="password" [(ngModel)]="loginObj.password" name="password">
-        </div>
-        <button type="submit" (click)="onLogin()">Login</button>
-    </form>
+<form>
+  <div class="login-container">
+    <h2 align="center">Login Form</h2>
+    <hr style="margin-bottom: 40px;">
+    <label for="username"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" [(ngModel)]="loginObj.username" name="username" required>
+
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" [(ngModel)]="loginObj.password" name="password" required>
+    <div>
+    </div>
+    <button type="submit" (click)="onLogin()">Login</button>
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="reset" class="resetbtn">Reset</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </div>
+  </form>

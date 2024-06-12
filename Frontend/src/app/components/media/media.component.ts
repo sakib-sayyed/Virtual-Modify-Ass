@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
@@ -5,13 +6,23 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-media',
   standalone: true,
-  imports: [HttpClientModule],
+  imports: [HttpClientModule,CommonModule],
   templateUrl: './media.component.html',
   styleUrl: './media.component.css'
 })
 export class MediaComponent {
 
   media: any[] = [];
+
+  pictureCount: number = 0;
+  videoCount: number = 0;
+  soundCount: number = 0;
+  totalSize: number = 0;
+  totalStorage: number = 0;
+  pictureSize: number = 0;
+  videoSize: number = 0;
+  soundSize: number = 0;
+
   errorMessage: string = '';
 
   private apiUrl = 'http://127.0.0.1:8000/media/';
@@ -20,6 +31,7 @@ export class MediaComponent {
 
   ngOnInit(): void {
     this.fetchMedia();
+    this.calculateMediaStats();
   }
 
   private getHeaders(): HttpHeaders {
@@ -54,6 +66,20 @@ export class MediaComponent {
         } else {
           this.errorMessage = 'Failed to load Media. ' + error.message;
         }
+      }
+    });
+  }
+  calculateMediaStats(): void {
+    this.media.forEach(m => {
+      if (m.type === 'Picture') {
+        this.pictureCount++;
+        this.pictureSize += m.size;
+      } else if (m.type === 'Video') {
+        this.videoCount++;
+        this.videoSize += m.size;
+      } else if (m.type === 'Sound') {
+        this.soundCount++;
+        this.soundSize += m.size;
       }
     });
   }
