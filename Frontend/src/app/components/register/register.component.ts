@@ -1,54 +1,57 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ApiService } from '../../services/api.service';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [FormsModule, HttpClientModule, CommonModule],
+  imports: [ReactiveFormsModule,RouterLink],
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrl: './register.component.css'
 })
 export class RegisterComponent {
-  username = '';
-  password = '';
-  profile_picture: File | null = null;
-  errorMessage = '';
+  registerForm: FormGroup;
 
-  private registerUrl = 'http://127.0.0.1:8000/register/';
-
-  constructor(private http: HttpClient, private router: Router) {}
-
-  onFileSelected(event: any): void {
-    if (event.target.files.length > 0) {
-      this.profile_picture = event.target.files[0];
-    }
+  constructor(private api:ApiService ,private router:Router){
+    
+    this.registerForm = new FormGroup({
+      username: new FormControl("", [Validators.minLength(3), Validators.required]),
+      password: new FormControl("", [Validators.minLength(4), Validators.required]),
+      profile_picture: new FormControl(null)
+    });
   }
 
-  register() {
-    if (this.username && this.password && this.profile_picture) {
-      const formData = new FormData();
-      formData.append('username', this.username);
-      formData.append('password', this.password);
-      formData.append('profile_picture', this.profile_picture);
+  registerUser(){
+    const formData = new FormData();
+    formData.append('user.username', this.registerForm.get('username')?.value);
+    formData.append('user.password', this.registerForm.get('password')?.value);
 
-      this.http.post<any>(this.registerUrl, formData).subscribe({
-        next: response => {
-          if (response.access && response.refresh) {
-            localStorage.setItem('access_token', response.access);
-            localStorage.setItem('refresh_token', response.refresh);
-            localStorage.setItem('user', JSON.stringify(response.user));
-            this.router.navigate(['/profile']); // Navigate to profile or dashboard on success
-          }
-        },
-        error: err => {
-          this.errorMessage = 'Registration failed. Please try again.';
-        }
-      });
-    } else {
-      this.errorMessage = 'All fields are required.';
+    const profilePictureFile = this.registerForm.get('profile_picture')?.value;
+    if (profilePictureFile) {
+      formData.append('profile_picture', profilePictureFile, profilePictureFile.name);
     }
+
+   // Api Calling Here
+    this.api.RegisterUser(formData).subscribe((response:any) =>{
+      if (response.access){
+        alert("Register Succesfull..")
+        this.router.navigateByUrl('/login')
+      }
+      else{
+        alert(response.message)
+      }
+    },error=>{
+      alert('Something Wrong !');
+      // console.log(error)
+  })
+  }
+
+  onFileChange(event: any) {
+    const file = event.target.files[0];
+    this.registerForm.patchValue({
+      profile_picture: file
+    });
+    this.registerForm.get('profile_picture')?.updateValueAndValidity();
   }
 }

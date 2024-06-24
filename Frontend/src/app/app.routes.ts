@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -6,6 +6,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { ProjectComponent } from './components/project/project.component';
 import { MediaComponent } from './components/media/media.component';
 import { StorageComponent } from './components/storage/storage.component';
+import { NgModule } from '@angular/core';
 
 export const routes: Routes = [
     {path: '', redirectTo:'login',pathMatch:'full'},
@@ -22,3 +23,9 @@ export const routes: Routes = [
     {path: 'project' ,component:ProjectComponent},
     {path: 'media',component:MediaComponent}
 ];
+
+@NgModule({
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
+  })
+  export class AppRoutingModule { }

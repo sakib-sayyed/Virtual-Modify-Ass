@@ -46,3 +46,8 @@ button{
     color: yellow;
     margin-right: 5px;
 }
+.logout:hover{
+    /* margin-left: 5px; */
+    float: right;
+    color: #ddd;
+}

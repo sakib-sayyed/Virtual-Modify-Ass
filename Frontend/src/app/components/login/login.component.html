@@ -1,18 +1,32 @@
-<form>
+<form [formGroup]="loginForm">
   <div class="login-container">
     <h2 align="center">Login Form</h2>
     <hr style="margin-bottom: 40px;">
     <label for="username"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" [(ngModel)]="loginObj.username" name="username" required>
+    <input type="text" placeholder="Enter Username" formControlName="username" name="username">
+    <div class="validators">
+      @if(loginForm.controls['username'].touched && loginForm.controls['username'].errors?.['required']){
+        <span>This Field is required</span>
+      }@else if (loginForm.controls['username'].touched && loginForm.controls['username'].errors?.['minlength']) {
+        <span>Minimum 3 characters required</span>
+      }
+    </div>
 
     <label for="password"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" [(ngModel)]="loginObj.password" name="password" required>
+    <input type="password" placeholder="Enter Password" formControlName="password" name="password">
+    <div class="validators">
+      @if(loginForm.controls['password'].touched && loginForm.controls['password'].errors?.['required']){
+        <span>This Field is required</span>
+      }@else if (loginForm.controls['password'].touched && loginForm.controls['password'].errors?.['minlength']) {
+        <span>Minimum 4 characters required</span>
+      }
+    </div>
     <div>
     </div>
-    <button type="submit" (click)="onLogin()">Login</button>
+    <button type="submit" (click)="Login()">Login</button>
     <div class="container" style="background-color:#f1f1f1">
       <button type="reset" class="resetbtn">Reset</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
+      <span class="login-url">Not Have an Account <a routerLink="/register">Register</a></span>
     </div>
   </div>
-  </form>
+</form>

@@ -39,14 +39,14 @@ button:hover {
   padding: 16px;
 }
 
-span.psw {
+span.login-url {
   float: right;
   padding-top: 16px;
 }
 
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
-  span.psw {
+  span.login-url {
      display: block;
      float: none;
   }

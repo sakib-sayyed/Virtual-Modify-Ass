@@ -1,63 +1,69 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ApiService } from '../../services/api.service';
+import { Router, RouterLink } from '@angular/router';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule,HttpClientModule],
+  imports: [FormsModule,ReactiveFormsModule,RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
 
-  loginObj :Login;
+  // Reactive form for Login
+  loginForm : FormGroup = new FormGroup({
+    username : new FormControl("",[Validators.minLength(3),Validators.required]),
+    password : new FormControl("",[Validators.minLength(4),Validators.required]),
+  });
+  // formValue:any = this.loginForm.value;
 
-  constructor(private http:HttpClient,private router: Router){
-    this.loginObj = new Login();
-  }
+  constructor(private api:ApiService,private router: Router){}
 
-  onLogin(){
-    this.http.post('http://127.0.0.1:8000/login/',this.loginObj).subscribe((response:any)=>{
+  Login(){
+    this.api.LoginUser(this.loginForm.value).subscribe((response:any)=>{
       if(response.access){
-        alert("Login Success")
-        // localStorage.setItem('mytoken',response.access);
+        alert("Logdin Successfully")
 
         localStorage.setItem('access_token', response.access);
         localStorage.setItem('refresh_token', response.refresh);
-        localStorage.setItem('user', JSON.stringify(response.user));
-        localStorage.setItem('profile_pic',response.profile_picture)
-        // localStorage.setItem('profile_pic',response.user.profile_picture);
-        // localStorage.setItem('username',response.user.user.username);
+        localStorage.setItem('profile_pic',response.user.profile_picture)
+        localStorage.setItem('username',response.user.user.username);
+        localStorage.setItem('userid',response.user.user.id)
+        // localStorage.setItem('user', JSON.stringify(response.user));
 
         this.router.navigateByUrl('/dashboard')
-
-        // console.log(localStorage.getItem('profile_pic'))
-        // console.log(localStorage.getItem('username'))
-        // console.log(localStorage.getItem('user'))
+        // console.log(localStorage.getItem('userid'))
       }
       else{
         alert(response.message) //||'Login Failed'
       }
-      console.log(response)
-      console.log(response.access)
-    })
+    },error=>{
+    alert('Please Correct the Username or Password')
+    // console.log(error)
+  })
   }
+  
+}
 
-  // logout() {
-  //   localStorage.removeItem('access_token');
-  //   localStorage.removeItem('refresh_token');
-  //   localStorage.removeItem('user');
-  //   this.router.navigate(['/login']);
+
+
+  // this.Loginobj = new Login();
+  // Reactive form
+  // onSave(){
+  //   this.formValue = this.loginForm.value
+  //   console.log(this.formValue)
   // }
+  // Loginobj :Login;
 
-}
-export class Login{
-  username : string;
-  password : string;
-  constructor(){
-    this.username = '';
-    this.password = '';
-  }
-}
+
+// // For Login User
+// export class Login{
+//   username : string;
+//   password : string;
+//   constructor(){
+//     this.username = '';
+//     this.password = '';
+//   }
+// }

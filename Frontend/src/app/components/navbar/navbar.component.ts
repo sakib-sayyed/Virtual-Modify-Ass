@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -9,17 +10,19 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
-  username: string | null = null;
-  profile_pic:string | null = null;
+  username = localStorage.getItem('username')
+  profile_pic = localStorage.getItem('profile_pic')
+  profile_pic_url = "http://127.0.0.1:8000/"+ this.profile_pic 
 
-  ngOnInit(): void {
-    const user = localStorage.getItem('user');
-    const profile_pic = localStorage.getItem('profile_pic')
-    if (user) {
-      const userData = JSON.parse(user);
-      this.username = userData.user.username;
-      this.profile_pic = userData.user.profile_pic
-    }
+
+  constructor(private router:Router){}
+
+  logout() {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('refresh_token');
+    localStorage.removeItem('username');
+    localStorage.removeItem('profile_pic');
+    this.router.navigate(['/login']);
   }
 
 }
